@@ -1,0 +1,46 @@
+﻿@model CURDdemo.Models.Department
+
+@{
+    ViewBag.Title = "Save";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Save Department Info</h2>
+<hr/>
+<div>
+
+   @using (Html.BeginForm("SaveDepartmentInfo", "Department",FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+   {
+       if (Model!=null && Model.DeptId>0)
+       {
+           @Html.HiddenFor(d => d.DeptId)
+       }
+
+       <div class="form-group">
+           @Html.LabelFor(d => d.DepartmentName)
+           @Html.TextBoxFor(d => d.DepartmentName, new {@class = "form-control"})
+           @Html.ValidationMessageFor(d => d.DepartmentName, "", new {@class = "text-danger", @style = "color: red"})
+       </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(d => d.DepartmentCode)
+        @Html.TextBoxFor(d => d.DepartmentCode, new { @class = "form-control" })
+       @* @Html.ValidationMessageFor(d => d.DepartmentCode, "", new { @class = "text-danger", @style = "color: red" })*@
+        @Html.ValidationMessageFor(d => d.DepartmentCode)
+    </div>
+
+       <br/>
+       <div>
+           <input type="submit" class="btn btn-success" value="SSSS"/>
+       </div>
+       <br/>
+
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-success">Save</button>
+        </div>
+    </div>
+   }
+
+</div>

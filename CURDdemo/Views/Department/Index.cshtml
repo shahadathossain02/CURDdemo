@@ -1,0 +1,37 @@
+﻿@model CURDdemo.Models.Department
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Department Informations</h2>
+
+<div>
+
+    @Html.ActionLink("Add New Department","Save")
+    <br/>
+    <a href="~/Department/Save"> Create New</a>
+
+    <br/>
+
+    <h3 style="color: red">Showing List of Data Using ViewBag</h3>
+
+    <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>Dept Id </th>
+                <th>Department Name </th>
+                <th>Department Code </th>
+                
+            </tr>
+            @foreach (var d in ViewBag.Department)
+            {
+                <tr>
+                    <td>@d.DeptId</td>
+                    <td>@d.DepartmentCode</td>
+                    <td>@d.DepartmentName</td>
+                    
+
+                </tr>
+            }
+        </table>  
+</div>
